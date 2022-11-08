@@ -28,6 +28,12 @@ app.get("/service",async(req,res)=>{
     const services=await cursor.toArray()
     res.send(services)
 })
+app.get("/allservice",async(req,res)=>{
+    const query={};
+    const cursor=serviceCollection.find(query)
+    const services=await cursor.toArray()
+    res.send(services)
+})
     }
     finally{
 
