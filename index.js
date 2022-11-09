@@ -48,6 +48,27 @@ app.post("/reviews",async(req,res)=>{
     const result=await reviewCollection.insertOne(reviews)
     res.send(result)
 })
+app.get('/reviews',async(req,res)=>{
+    console.log(req.query)
+    let query={}
+    if(req.query.email){
+        query={
+email:req.query.email
+        }
+    }
+   const cursor=reviewCollection.find(query)
+    const result=await cursor.toArray()
+    res.send(result)
+})
+app.delete('/reviews/:id',async(req,res)={
+    
+})
+app.get('/reviews',async(req,res)=>{
+    const query={}
+   const cursor=reviewCollection.find(query)
+    const result=await cursor.toArray()
+    res.send(result)
+})
     }
     finally{
 
